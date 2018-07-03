@@ -1,5 +1,5 @@
-# MyApp
-This is a lightweight API built with the Elixir framework Phoenix. It features simple user authentication with sessions.
+# Auth-Sentry
+Auth Sentry is a lightweight API built with the Phoenix framework and the Elixir language. It features simple user authentication with sessions.
 
 To start your Phoenix server:
 
