@@ -25,18 +25,19 @@ defmodule MyApp.AuthTest do
 
     test "list_users/0 returns all users" do
       user = user_fixture()
-      assert Auth.list_users() == [user]
+      assert Auth.list_users() == [%User{user | password: nil}]
     end
 
     test "get_user!/1 returns the user with given id" do
       user = user_fixture()
-      assert Auth.get_user!(user.id) == user
+      assert Auth.get_user!(user.id) == %User{user | password: nil}
     end
 
     test "create_user/1 with valid data creates a user" do
       assert {:ok, %User{} = user} = Auth.create_user(@valid_attrs)
       assert user.email == "some email"
       assert user.is_active == true
+      assert Auth.get_user!(user.id) == %User{user | password: nil}
     end
 
     test "create_user/1 with invalid data returns error changeset" do
